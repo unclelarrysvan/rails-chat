@@ -31,6 +31,7 @@ gem 'jbuilder', '~> 2.0'
 # gem 'capistrano-rails', group: :development
 
 gem 'haml-rails'
+gem 'react-rails', '~> 1.6.0'
 
 
 group :development, :test do
