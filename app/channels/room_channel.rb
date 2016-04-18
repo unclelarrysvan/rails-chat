@@ -9,7 +9,7 @@ class RoomChannel < ApplicationCable::Channel
   end
 
   def speak data
-    Message.create content: data['message']
-    #ActionCable.server.broadcast 'room_channel', callback: data['callback']
+    Message.create content: data['message']['content']
+    ActionCable.server.broadcast 'room_channel', callback: data['callback']
   end
 end
