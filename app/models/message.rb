@@ -1,8 +1,9 @@
 class Message < ApplicationRecord
-  #after_create_commit :perform
+  after_create_commit :perform
 
   def perform
-    ActionCable.server.broadcast 'room_channel', message: render_message
+    ActionCable.server.broadcast 'room_channel', message: self
+    #ActionCable.server.broadcast 'room_channel', message: render_message
   end
 
   private

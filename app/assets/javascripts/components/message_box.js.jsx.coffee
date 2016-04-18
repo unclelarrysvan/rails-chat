@@ -3,6 +3,7 @@
     return { messages: [] }
 
   componentDidMount: ->
+    @setupSubscription()
     @loadMessagesFromServer()
 
   loadMessagesFromServer: ->
@@ -27,3 +28,23 @@
       <MessageList messages={this.state.messages}/>
       <MessageForm onMessageSubmit={this.handleMessageSubmit}/>
     </ul>`
+
+  updateMessageList: (message) ->
+    @loadMessagesFromServer()
+
+  setupSubscription: ->
+    App.room = App.cable.subscriptions.create "RoomChannel",
+      connected: ->
+        # Called when the subscription is ready for use on the server
+    
+      disconnected: ->
+        # Called when the subscription has been terminated by the server
+    
+      received: (data) ->
+        # Called when there's incoming data on the websocket for this channel
+        @updateMessageList(data.message)
+      
+      updateMessageList: @updateMessageList
+    
+      speak: (message) ->
+        @perform 'speak', message: message
