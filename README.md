@@ -1,1 +1,1 @@
-Basic Rails Chat App with ActionCable
+Basic Rails Chat App with ActionCable and React
