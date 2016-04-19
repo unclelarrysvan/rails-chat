@@ -60,6 +60,6 @@ Rails.application.configure do
   # routes, locales, etc. This feature depends on the listen gem.
   config.file_watcher = ActiveSupport::EventedFileUpdateChecker
 
-  config.action_cable.allowed_request_origins = ['http://localhost:3003']
+  config.action_cable.allowed_request_origins = ['http://localhost:3003', 'http://172.18.6.26:3003']
   config.action_mailer.default_url_options = { host: 'localhost', port: 3003 }
 end

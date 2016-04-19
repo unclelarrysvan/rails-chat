@@ -9,7 +9,7 @@
   componentDidMount: ->
     @setupSubscription()
     @loadMessagesFromServer()
-
+    @scrollToBottom()
 
   loadMessagesFromServer: ->
     $.ajax(
@@ -47,6 +47,10 @@
 
   updateMessageList: (message) ->
     @setState({messages: @state.messages.concat([message])})
+    @scrollToBottom()
+
+  scrollToBottom: ->
+    $(".messageList").animate({ scrollTop: $('.messageList')[0].scrollHeight}, 1000)
 
   setupSubscription: ->
     App.room = App.cable.subscriptions.create { channel: "RoomChannel", room_id: this.props.room_id },
