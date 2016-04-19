@@ -4,7 +4,7 @@ class Message < ApplicationRecord
   after_create_commit :perform
 
   def perform
-    ActionCable.server.broadcast 'room_channel', message: self, username: self.user.username
+    ActionCable.server.broadcast "room_channel_#{self.room_id}", message: self, username: self.user.username
     #ActionCable.server.broadcast 'room_channel', message: render_message
   end
 

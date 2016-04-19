@@ -49,7 +49,7 @@
     @setState({messages: @state.messages.concat([message])})
 
   setupSubscription: ->
-    App.room = App.cable.subscriptions.create "RoomChannel",
+    App.room = App.cable.subscriptions.create { channel: "RoomChannel", room_id: this.props.room_id },
       connected: ->
         # Called when the subscription is ready for use on the server
     
