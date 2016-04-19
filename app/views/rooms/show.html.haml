@@ -1,9 +1,13 @@
-%h1 Chat Room
+%h1 Chat Room #{@room.name}
 
 /#messages
 /  =render @messages
 
-=react_component('MessageBox')
+=react_component('MessageBox', room_id: @room.id)
+
+/=form_for @message, onsubmit: "MessageBox.sendMessageToServer()" do |f|
+/  =f.label :content, "Say something..."
+/  =f.text_field :content, id: "messageContent"
 
 /%form
 /  %label Say Something:

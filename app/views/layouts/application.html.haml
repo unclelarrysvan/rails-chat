@@ -1,0 +1,30 @@
+!!!5
+%html
+  %head
+    %title Chat
+    = csrf_meta_tags 
+    = action_cable_meta_tag
+
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => 'reload'
+    = javascript_include_tag 'application', 'data-turbolinks-track' => 'reload'
+
+  %body
+    .navbar.navbar-default
+      .container-fluid
+        .navbar-header
+          %a.navbar-brand{href: "/"} Chatter
+        .collapse.navbar-collapse
+          %ul.nav.navbar-nav
+            -if current_user
+              %li 
+                = current_user ? current_user.email : nil
+              %li
+                %a{href: destroy_user_session_path} Sign Out
+            -else
+              %li
+                %a{href: new_user_session_path} Sign In
+              %li
+                %a{href: new_user_registration_path} Sign Up
+    .row
+      .col-sm-10.col-sm-offset-1
+        = yield

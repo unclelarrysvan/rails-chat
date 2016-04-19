@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
-  devise_for :users
+  resources :rooms
+  devise_for :users, controllers: {sessions: "users/sessions"}
   resources :messages
-  root to: 'rooms#show'
+  root to: 'rooms#index'
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 

@@ -13,7 +13,8 @@ class @MessageForm extends React.Component
         type='text'
         placeholder='Say something...'
         ref='message'
+        className='form-control'
       />
 
-      <input type='submit' value='Post' id='messageForm'/>
+      <input type='submit' value='Post' className='btn btn-primary'/>
     </form>`
