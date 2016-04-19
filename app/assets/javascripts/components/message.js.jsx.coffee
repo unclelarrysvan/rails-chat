@@ -3,6 +3,4 @@ class @Message extends React.Component
     content: React.PropTypes.node
 
   render: ->
-    `<div>
-      <div>{this.props.content}</div>
-    </div>`
+    `<div>{this.props.content}</div>`

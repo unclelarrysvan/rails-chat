@@ -1,8 +1,8 @@
 class @MessageForm extends React.Component
   handleSubmit: (e) =>
-    message = this.refs.message.value.trim()
-    this.props.onMessageSubmit({content: message})
-    this.refs.message.value = ''
+    message = @refs.message.value.trim()
+    @props.onMessageSubmit({content: message})
+    @refs.message.value = ''
     e.preventDefault()
     e.stopPropagation()
     return false

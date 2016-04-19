@@ -17,9 +17,6 @@
     )
 
   handleMessageSubmit: (message) ->
-    messages = @state.messages
-    newMessages = messages.concat([message])
-    @setState({messages: newMessages})
     App.room.speak message
 
   render: ->
@@ -30,7 +27,7 @@
     </ul>`
 
   updateMessageList: (message) ->
-    @loadMessagesFromServer()
+    @setState({messages: @state.messages.concat([message])})
 
   setupSubscription: ->
     App.room = App.cable.subscriptions.create "RoomChannel",

@@ -32,6 +32,7 @@ gem 'jbuilder', '~> 2.0'
 
 gem 'haml-rails'
 gem 'react-rails', '~> 1.6.0'
+gem 'devise'
 
 
 group :development, :test do
